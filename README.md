@@ -12,17 +12,31 @@ git@github.com:DarkSou1/fabrique_test_task.git
 git clone git@github.com:DarkSou1/fabrique_test_task.git
 ```
 3. Установить и активировать виртуальное окружение
-4. Перейти в терминал, установить файл с зависимостями
+```
+python -m venv env
+```
+```
+source env/bin/activate
+```
+```
+python -m pip install --upgrade pip
+```
+4. Создать суперпользователя для доступа к админстрированию проекта.
+```commandline
+python manage.py createsuperuser
+```
+
+5. Перейти в терминал, установить файл с зависимостями
 ```commandline
 pip install -r requirements.txt 
 ```
-5. Перейти в папку с проектом (где расположен файл manage.py)
-6. Выполнить миграции командами: 
+6. Перейти в папку с проектом (где расположен файл manage.py)
+7. Выполнить миграции командами: 
 ```commandline
 python manage.py makemigrations
 python manage.py migrate 
 ```
-7. Запустить проект
+8. Запустить проект
 ```commandline
 python manage.py runserver
 ```
