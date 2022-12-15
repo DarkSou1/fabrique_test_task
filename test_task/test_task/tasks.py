@@ -9,7 +9,7 @@ def check_database():
         for message in distriburion.message.all():
             if sending_message(message.id,
                                message.client.phone_number,
-                               distriburion.TEXT) == 20:
+                               distriburion.TEXT) == 200:
                 message.is_status()
                 message.set_sent_at_now()
 

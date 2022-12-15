@@ -9,7 +9,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title='Фабрира Решений.',
         default_version='v1',
-        description='Тестовое задание для Фабрики решений.',
+        description='Тестовое задание для Фабрики решений. Дополнительно решен 1 и 5 пункт!',
         terms_of_service='https://www.google.com/policies/terms/',
         contact=openapi.Contact(email='contact@fabric.local'),
         license=openapi.License(name='BSD Lisense')
