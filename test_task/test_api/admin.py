@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import Distribution, Client, Message
 
+
 @admin.register(Distribution)
 class AdminDistribution(admin.ModelAdmin):
     list_display = ('id',

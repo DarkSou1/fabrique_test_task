@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 
 from rest_framework import status
@@ -92,7 +91,9 @@ class DistributionDetail(APIView):
     def put(self, request, pk):
         """Изменение существующей рассылки"""
         distribution = self.get_distribution(pk)
-        serializer = DistributionSerializer(distribution, data=request.data, partial=True)
+        serializer = DistributionSerializer(distribution,
+                                            data=request.data,
+                                            partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -112,7 +113,9 @@ class MessageViewList(APIView):
     def get(self, request):
         """Получение списка сообщении."""
         if 'distribution_id' in request.data:
-            messages = Message.objects.filter(distribution_id=request.data['distribution_id'])
+            messages = Message.objects.filter(
+                distribution_id=request.data['distribution_id']
+            )
             serializer = MessageSerializer(messages, many=True)
             return Response(serializer.data)
         messages = Message.objects.all()

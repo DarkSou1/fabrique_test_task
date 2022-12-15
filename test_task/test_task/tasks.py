@@ -7,7 +7,9 @@ from ..test_api.models import get_distributions, sending_message
 def check_database():
     for distriburion in get_distributions():
         for message in distriburion.message.all():
-            if sending_message(message.id, message.client.phone_number, distriburion.TEXT) == 20:
+            if sending_message(message.id,
+                               message.client.phone_number,
+                               distriburion.TEXT) == 20:
                 message.is_status()
                 message.set_sent_at_now()
 

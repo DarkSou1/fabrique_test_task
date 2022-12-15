@@ -2,7 +2,7 @@ import datetime
 
 from django.test import TestCase
 
-from .models import Distribution, Client
+from .models import Distribution
 
 FIRST_OBJECT = 1
 
@@ -34,22 +34,26 @@ class TestDistributionModel(TestCase):
     def test_text_content(self):
         """Проверка текста рассылки."""
         distribution = self.get_distribution()
-        self.assertEqual(TestDistributionModel.text, distribution.text)
+        self.assertEqual(TestDistributionModel.text,
+                         distribution.text)
 
     def test_filter_content(self):
         """Проверка фильтра рассылки."""
         distribution = self.get_distribution()
-        self.assertEqual(TestDistributionModel.test_filter, distribution.filter)
+        self.assertEqual(TestDistributionModel.test_filter,
+                         distribution.filter)
 
-    # def test_data_time_start_content(self):
-    #     """Проверка правильности начала рассылки."""
-    #     distribution = self.get_distribution()
-    #     self.assertEqual(TestDistributionModel.data_time_start, distribution.data_time_start)
-    #
-    # def test_data_time_finish_content(self):
-    #     """Проверка правильности конца рассылки."""
-    #     distribution = self.get_distribution()
-    #     self.assertEqual(TestDistributionModel.data_time_finish, distribution.data_time_finish)
+    def test_data_time_start_content(self):
+        """Проверка правильности начала рассылки."""
+        distribution = self.get_distribution()
+        self.assertEqual(TestDistributionModel.data_time_start,
+                         distribution.data_time_start)
+
+    def test_data_time_finish_content(self):
+        """Проверка правильности конца рассылки."""
+        distribution = self.get_distribution()
+        self.assertEqual(TestDistributionModel.data_time_finish,
+                         distribution.data_time_finish)
 
 
 # class TestClientModel(TestCase):
@@ -73,5 +77,3 @@ class TestDistributionModel(TestCase):
 #     def test_phone_number_content(self):
 #         client = self.get_client()
 #         self.assertEqual(self.TEST_PHONE_NUMBER, client.phone_number)
-
-
